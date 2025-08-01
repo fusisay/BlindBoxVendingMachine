@@ -1,5 +1,5 @@
-import "./home.css"
-import Header from "../layouts/header.jsx";
+import Header from "../layouts/Header.jsx";
+import "../components/Background.css"
 
 
 
@@ -9,9 +9,7 @@ export default function Home() {
         <div className="background">
             <div className="mask"></div>
             <div className="container">
-                <Header />
-            <div className="login">
-            </div>
+                <Header isLoggedIn={false} />
             </div>
         </div>
 

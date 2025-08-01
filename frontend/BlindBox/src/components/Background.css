@@ -1,0 +1,28 @@
+.background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url("../assets/砂金.png");
+    object-fit: contain;
+    background-position: center;
+}
+
+.mask {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-top:solid 1px transparent;
+    position: relative;
+    z-index: 10;
+}

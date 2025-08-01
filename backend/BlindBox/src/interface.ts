@@ -5,21 +5,23 @@ export interface IUserOptions {
   uid: number;
 }
 
+export interface User {
+  id: number;
+  name: string;
+  phone: string;
+  password: string;
+  address: string;
+  role: "user" | "admin";
+}
 
-export interface WeatherInfo {
-  weatherinfo: {
-    city: string;
-    cityid: string;
-    temp: string;
-    WD: string;
-    WS: string;
-    SD: string;
-    Ap: string;
-    njd: string;
-    WSE: string;
-    time: string;
-    sm: string;
-    isRadar: string;
-    Rader: string;
-  }
+export class LoginDTO {
+  username: string;
+  password: string;
+}
+
+export class RegisterDTO {
+  name: string;
+  phone: string;
+  address: string;
+  password: string;
 }

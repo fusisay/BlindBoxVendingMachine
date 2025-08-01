@@ -1,12 +1,13 @@
 import {Link} from "react-router-dom";
-import "./header.css";
+import "./Header.css";
 import titleLogo from "../../public/小砂金.png";
 import "tailwindcss";
 import Search from "../../public/search.svg"
 import Currency from "../../public/筹码.png"
 import Add from "../../public/加号.svg"
+import Avatar from "../../public/小砂金（1）.webp"
 
-export default function Header() {
+export default function Header({isLoggedIn}) {
     return (
 
         <header className="header">
@@ -25,9 +26,10 @@ export default function Header() {
                 <input className="search-text"/>
                 <img src={Search} alt="search" className="search-icon" />
             </div>
-            <div className="user">
+            { isLoggedIn ?
+                (<div className="user">
                 <div className="user-avatar">
-                    <img src={titleLogo} alt="user-avatar" />
+                    <img src={Avatar} alt="user-avatar" />
                 </div>
                 <Link to="/user" className="link">我的gergrgr</Link>
                 <div className="account">
@@ -39,7 +41,12 @@ export default function Header() {
                         <Link to="/recharge"><img src={Add} alt="add-icon"  /></Link>
                     </div>
                 </div>
-            </div>
+            </div>) :
+                (<div className="not-login">
+                    <Link to="/login" className="link">登录</Link>
+                    <Link to="/register" className="link">注册</Link>
+                </div>)
+            }
         </header>
     )
 }

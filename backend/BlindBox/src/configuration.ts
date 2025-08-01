@@ -6,17 +6,19 @@ import { join } from 'path';
 // import { DefaultErrorFilter } from './filter/default.filter';
 // import { NotFoundFilter } from './filter/notfound.filter';
 import { ReportMiddleware } from './middleware/report.middleware';
-import * as view from '@midwayjs/view-nunjucks'
+import * as orm from '@midwayjs/typeorm';
+import * as swagger from '@midwayjs/swagger';
 
 @Configuration({
   imports: [
     koa,
     validate,
+    orm,
+    swagger,
     {
       component: info,
       enabledEnvironment: ['local'],
     },
-    view
   ],
   importConfigs: [join(__dirname, './config')],
 })

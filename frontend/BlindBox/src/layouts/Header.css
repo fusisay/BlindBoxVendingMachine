@@ -27,6 +27,9 @@ header {
     align-items: center;
     height: 3rem;
     gap: 1rem;
+    background: linear-gradient(180deg,#D4AF37,#3ABEFF);
+    -webkit-background-clip: text;   /* 背景裁剪为文字形状 */
+    -webkit-text-fill-color: transparent; /* 使文字透明，只显示背景 */
 }
 
 .title-logo,.user-avatar{
@@ -101,5 +104,13 @@ header {
     font-family: MyFont,sans-serif;
     font-size: 1.2rem;
     max-width: 10rem;
+}
+
+.not-login {
+    display: flex;
+    flex-direction: row;
+    margin-left: 8rem;
+    align-items: center;
+    gap: 3rem;
 }
 

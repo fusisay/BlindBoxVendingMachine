@@ -1,0 +1,90 @@
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register {
+    position: relative;
+    width: 35vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 2px solid #D4AF37;
+    border-radius: 16px;
+    padding: 20px;
+    background: #fff;
+
+    /* 添加立体感高光阴影 */
+    box-shadow:
+            0 4px 6px rgba(75, 0, 130, 0.2),
+            inset 0 1px 3px rgba(255, 255, 255, 0.6),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.register:hover {
+    box-shadow:
+            0 6px 12px rgba(75, 0, 130, 0.35),
+            inset 0 1px 4px rgba(255, 255, 255, 0.7),
+            inset 0 -2px 3px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.reg_title {
+    margin: 0;
+    font-family: MyFont,Serif;
+    background: linear-gradient(180deg,#D4AF37,#3ABEFF);
+    -webkit-background-clip: text;   /* 背景裁剪为文字形状 */
+    -webkit-text-fill-color: transparent; /* 使文字透明，只显示背景 */
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register label {
+    width: 150px;
+    text-align: right;
+    font-family: MyFont,Serif;
+    font-size: 24px;
+}
+
+.register input {
+    height: 30px;
+    width: 250px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+.register button {
+    width: 30%;
+    margin-left: 35%;
+    background-color: #e1ce4d;
+    font-family: MyFont,Serif;
+    font-size: 20px;
+}
+
+.register .error {
+    position: absolute;
+    top: 8%;
+    left: 30%;
+    color: red;
+    font-size: 16px;
+    font-family: MyFont,Serif;
+}
+
+.register .success {
+    position: absolute;
+    top: 8%;
+    left: 45%;
+    color: green;
+    font-size: 16px;
+    font-family: MyFont,Serif;
+}
+
