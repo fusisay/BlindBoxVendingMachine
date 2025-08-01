@@ -3,6 +3,7 @@ import Header from "../layouts/Header.jsx"
 import {useState} from "react";
 import "./Register.css"
 import {useNavigate} from "react-router-dom";
+import axios from "../constants/axios.js";
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -14,7 +15,7 @@ export default function Register() {
     const [success, setSuccess] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault(); // 阻止默认提交行为
         setError("");
         setSuccess("");
@@ -24,11 +25,11 @@ export default function Register() {
             return;
         }
 
-        // 你可以在这里加上进一步的校验逻辑，比如是否手机号合法、用户名是否重复等
-        setSuccess("注册成功！");
-        // 后续可以添加发送注册请求的逻辑
-
-        setTimeout(navigate("/login"), 2000);
+        const res = await axios.post("/api/user/register", {name:name, phone:phone, address:address,password:password});
+        if (res.data.success) {
+            setSuccess("注册成功！");
+        }
+        setTimeout(() => navigate("/login"), 2000);
     };
 
 

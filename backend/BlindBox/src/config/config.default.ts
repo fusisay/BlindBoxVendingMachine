@@ -1,11 +1,22 @@
 import { MidwayConfig } from '@midwayjs/core';
-// import { User } from '../entity/User';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export default {
   // use for cookie sign key, should change to your own and keep security
   keys: '1753974490317_1836',
   koa: {
     port: 7001,
+    cors: {
+      origin: '*', // 或者设置为 'http://localhost:3000' 更安全
+      allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+      credentials: true,
+    },
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET, // 建议放在 .env 文件里
+    expiresIn: '2h', // token 过期时间
   },
   typeorm: {
     dataSource: {

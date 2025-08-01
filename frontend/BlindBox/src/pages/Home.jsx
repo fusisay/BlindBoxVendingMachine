@@ -9,7 +9,7 @@ export default function Home() {
         <div className="background">
             <div className="mask"></div>
             <div className="container">
-                <Header isLoggedIn={false} />
+                <Header />
             </div>
         </div>
 

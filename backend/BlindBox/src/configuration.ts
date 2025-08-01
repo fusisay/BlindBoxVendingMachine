@@ -8,6 +8,8 @@ import { join } from 'path';
 import { ReportMiddleware } from './middleware/report.middleware';
 import * as orm from '@midwayjs/typeorm';
 import * as swagger from '@midwayjs/swagger';
+import * as jwt from '@midwayjs/jwt';
+import * as crossDomain from '@midwayjs/cross-domain';
 
 @Configuration({
   imports: [
@@ -15,6 +17,8 @@ import * as swagger from '@midwayjs/swagger';
     validate,
     orm,
     swagger,
+    jwt,
+    crossDomain,
     {
       component: info,
       enabledEnvironment: ['local'],

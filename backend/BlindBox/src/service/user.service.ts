@@ -1,11 +1,16 @@
-import { Provide } from '@midwayjs/core';
+import { Inject, Provide } from '@midwayjs/core';
 import { User } from '../entity/User';
 import { InjectEntityModel } from '@midwayjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoginDTO, RegisterDTO } from '../interface';
+import { JwtService } from '@midwayjs/jwt';
 
 @Provide()
 export class UserService {
+  @Inject()
+  jwtService: JwtService;
+
+
   @InjectEntityModel(User)
   userModel: Repository<User>;
 
@@ -25,10 +30,12 @@ export class UserService {
       return { success: false, message: 'Incorrect password', data: null };
     }
 
+    const token = await this.jwtService.sign({ uid: user.id, name: user.name });
+
     return {
       success: true,
       message: 'Login successful',
-      data: user,
+      data: { token, user },
     };
   }
 

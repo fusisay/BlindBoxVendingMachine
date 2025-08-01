@@ -6,10 +6,14 @@ import Search from "../../public/search.svg"
 import Currency from "../../public/筹码.png"
 import Add from "../../public/加号.svg"
 import Avatar from "../../public/小砂金（1）.webp"
+import {useUserStore} from "../store/userStore.js";
 
-export default function Header({isLoggedIn}) {
+export default function Header() {
+    const state = useUserStore();
+
+
+
     return (
-
         <header className="header">
             <div className="title">
                 <div className="title-logo">
@@ -26,12 +30,12 @@ export default function Header({isLoggedIn}) {
                 <input className="search-text"/>
                 <img src={Search} alt="search" className="search-icon" />
             </div>
-            { isLoggedIn ?
+            { state.userInfo ?
                 (<div className="user">
                 <div className="user-avatar">
                     <img src={Avatar} alt="user-avatar" />
                 </div>
-                <Link to="/user" className="link">我的gergrgr</Link>
+                <Link to="/self" className="link">我的gergrgr</Link>
                 <div className="account">
                     <div className="account-icon">
                         <img src={Currency} alt="account-icon" />

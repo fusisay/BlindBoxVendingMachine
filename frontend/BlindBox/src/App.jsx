@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import Home from './pages/Home.jsx';
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import {Self} from "./pages/Self.jsx";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
             <Route path='/home' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/self' element={<Self />} />
         </Routes>
     </div>
   )
