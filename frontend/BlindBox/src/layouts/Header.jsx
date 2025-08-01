@@ -9,7 +9,7 @@ import Avatar from "../../public/小砂金（1）.webp"
 import {useUserStore} from "../store/userStore.js";
 
 export default function Header() {
-    const state = useUserStore();
+    const state = useUserStore.getState().userInfo;
 
 
 
@@ -30,12 +30,12 @@ export default function Header() {
                 <input className="search-text"/>
                 <img src={Search} alt="search" className="search-icon" />
             </div>
-            { state.userInfo ?
+            { state ?
                 (<div className="user">
                 <div className="user-avatar">
                     <img src={Avatar} alt="user-avatar" />
                 </div>
-                <Link to="/self" className="link">我的gergrgr</Link>
+                <Link to="/self" className="link">{state.user.name}</Link>
                 <div className="account">
                     <div className="account-icon">
                         <img src={Currency} alt="account-icon" />
