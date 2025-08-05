@@ -73,3 +73,10 @@ button:focus-visible {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: MyFont2;
+  src: url('../public/fonts/MyFont2.ttf')format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -5,11 +5,11 @@ import "tailwindcss";
 import Search from "../../public/search.svg"
 import Currency from "../../public/筹码.png"
 import Add from "../../public/加号.svg"
-import Avatar from "../../public/小砂金（1）.webp"
 import {useUserStore} from "../store/userStore.js";
+import {Avatars} from "../constants/avatar.js";
 
 export default function Header() {
-    const state = useUserStore.getState().userInfo;
+    const state = useUserStore((state) => state.userInfo);
 
 
 
@@ -33,14 +33,14 @@ export default function Header() {
             { state ?
                 (<div className="user">
                 <div className="user-avatar">
-                    <img src={Avatar} alt="user-avatar" />
+                    <img src={Avatars[state.user.avatar]} alt="user-avatar" />
                 </div>
                 <Link to="/self" className="link">{state.user.name}</Link>
                 <div className="account">
                     <div className="account-icon">
                         <img src={Currency} alt="account-icon" />
                     </div>
-                    <div className="account-text">余额：111111111</div>
+                    <div className="account-text">余额：{state.user.balance}</div>
                     <div className="account-icon">
                         <Link to="/recharge"><img src={Add} alt="add-icon"  /></Link>
                     </div>

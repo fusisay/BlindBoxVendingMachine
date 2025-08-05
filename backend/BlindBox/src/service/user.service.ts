@@ -2,8 +2,9 @@ import { Inject, Provide } from '@midwayjs/core';
 import { User } from '../entity/User';
 import { InjectEntityModel } from '@midwayjs/typeorm';
 import { Repository } from 'typeorm';
-import { LoginDTO, RegisterDTO } from '../interface';
+import { LoginDTO, RegisterDTO } from '../interface/interface';
 import { JwtService } from '@midwayjs/jwt';
+import { UpdateAvatarDTO, UpdateNameDTO, UpdatePhoneDTO, UpdateAddressDTO, UpdatePasswordDTO, UpdateBalanceDTO } from '../interface/user.dto';
 
 @Provide()
 export class UserService {
@@ -76,5 +77,60 @@ export class UserService {
 
   }
 
+
+  async updateAvatar(dto: UpdateAvatarDTO) {
+  const user = await this.userModel.findOneBy({ id: dto.id });
+  if (!user) return { success: false, message: '用户不存在' };
+
+  user.avatar = dto.avatar;
+  await this.userModel.save(user);
+  return { success: true, message: '头像修改成功' };
+}
+
+async updateName(dto: UpdateNameDTO) {
+  const user = await this.userModel.findOneBy({ id: dto.id });
+  if (!user) return { success: false, message: '用户不存在' };
+
+  user.name = dto.name;
+  await this.userModel.save(user);
+  return { success: true, message: '用户名修改成功' };
+}
+
+async updatePhone(dto: UpdatePhoneDTO) {
+  const user = await this.userModel.findOneBy({ id: dto.id });
+  if (!user) return { success: false, message: '用户不存在' };
+
+  user.phone = dto.phone;
+  await this.userModel.save(user);
+  return { success: true, message: '电话修改成功' };
+}
+
+async updateAddress(dto: UpdateAddressDTO) {
+  const user = await this.userModel.findOneBy({ id: dto.id });
+  if (!user) return { success: false, message: '用户不存在' };
+
+  user.address = dto.address;
+  await this.userModel.save(user);
+  return { success: true, message: '地址修改成功' };
+}
+
+async updatePassword(dto: UpdatePasswordDTO) {
+  const user = await this.userModel.findOneBy({ id: dto.id });
+  if (!user) return { success: false, message: '用户不存在' };
+
+  user.password = dto.password; // 实际应加密处理
+  await this.userModel.save(user);
+  return { success: true, message: '密码修改成功' };
+}
+
+async updateBalance(dto: UpdateBalanceDTO) {
+  const user = await this.userModel.findOneBy({ id: dto.id });
+  if (!user) return { success: false, message: '用户不存在' };
+
+  user.balance += dto.balance;
+  await this.userModel.save(user);
+  return { success: true, message: '余额修改成功' ,balance: user.balance};
+
+}
 
 }

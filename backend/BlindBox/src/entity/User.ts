@@ -19,4 +19,10 @@ export class User {
 
   @Column({default: "user"})
   role: "user" | "admin";
+
+  @Column({default: 1})
+  avatar: number;
+
+  @Column({default: 0})
+  balance: number;
 }

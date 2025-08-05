@@ -19,8 +19,6 @@ export default function Login() {
         if (res.data.success) {
             console.log(res.data.data);
             setUserInfo(res.data.data);// 保存到全局
-            useUserStore.getState().setUserInfo({avatar:1});
-            console.log(useUserStore.getState().userInfo)
             alert('登陆成功！');
             navigate('/'); // 登录后跳转主页
         } else {

@@ -10,7 +10,15 @@ export const useUserStore = create(
             userInfo: null,
             setUserInfo: (user) => {
                 const prev = get().userInfo || {};
-                set({ userInfo: { ...prev,...user } });
+                set({
+                    userInfo: {
+                        ...prev,
+                        ...user,
+                        user: {
+                            ...(prev.user || {}),
+                            ...(user.user || {}),
+                        }
+                    } });
             },
             clearUserInfo: () => set({ userInfo: null }),
         }),

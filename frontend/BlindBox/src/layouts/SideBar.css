@@ -1,0 +1,34 @@
+.SideBar {
+    position: absolute;
+    top: 5%;
+    right: 105%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* ParallelogramButton.css */
+.parallelogram-button {
+    background-color: #fffaf0;
+    color: black;
+    border: none;
+    padding: 12px 30px;
+    transform: skew(-20deg);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.parallelogram-button:hover {
+    background-color: #ffffff;
+}
+
+.button-text {
+    font-family: MyFont2,Serif;
+    display: inline-block;
+    transform: skew(20deg);
+    font-weight: bold;
+    font-size: 16px;
+}
