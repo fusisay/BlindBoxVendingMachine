@@ -10,6 +10,8 @@ import * as orm from '@midwayjs/typeorm';
 import * as swagger from '@midwayjs/swagger';
 import * as jwt from '@midwayjs/jwt';
 import * as crossDomain from '@midwayjs/cross-domain';
+import * as staticFile from '@midwayjs/static-file';
+import * as upload from '@midwayjs/upload';
 
 @Configuration({
   imports: [
@@ -19,6 +21,8 @@ import * as crossDomain from '@midwayjs/cross-domain';
     swagger,
     jwt,
     crossDomain,
+    staticFile,
+    upload,
     {
       component: info,
       enabledEnvironment: ['local'],

@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Post } from './Post';
+import { Comment } from './Comment';
 
 @Entity()
 export class User {
@@ -25,4 +27,10 @@ export class User {
 
   @Column({default: 0})
   balance: number;
+
+  @OneToMany(() => Post, post => post.author)
+  posts: Post[];
+
+  @OneToMany(() => Comment, comment => comment.author)
+  comments: Comment[];
 }

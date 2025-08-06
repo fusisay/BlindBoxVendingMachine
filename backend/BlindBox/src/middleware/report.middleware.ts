@@ -5,6 +5,16 @@ import { NextFunction, Context } from '@midwayjs/koa';
 export class ReportMiddleware implements IMiddleware<Context, NextFunction> {
   resolve() {
     return async (ctx: Context, next: NextFunction) => {
+      // 静态资源路径前缀
+      const staticPrefixes = ['/uploads', '/swagger-ui', '/favicon.ico'];
+
+      // 如果请求路径以静态资源路径开头，则跳过中间件逻辑
+      if (staticPrefixes.some(prefix => ctx.path.startsWith(prefix))) {
+        return next();
+      }
+
+
+
       // 控制器前执行的逻辑
       const startTime = Date.now();
       // 执行下一个 Web 中间件，最后执行到控制器
