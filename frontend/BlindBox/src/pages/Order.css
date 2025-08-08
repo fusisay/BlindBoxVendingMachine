@@ -1,0 +1,61 @@
+/* 横向排列三组订单 */
+.order-section-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+/* 每个订单分组列 */
+.order-group {
+    flex: 1;
+    min-width: 250px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 每个订单卡片 */
+.order-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #f9f9f9;
+}
+
+/* 商品图 */
+.order-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* 商品信息 */
+.order-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.order-info h4 {
+    margin: 0;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-info p {
+    margin: 4px 0 0 0;
+    color: #666;
+}

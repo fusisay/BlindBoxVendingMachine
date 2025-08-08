@@ -12,7 +12,7 @@ export default function SideBar() {
             </button>
 
             <button className="parallelogram-button">
-                <span className="button-text">我的盲盒</span>
+                <span className="button-text" onClick={() => {navigate('/order');}}>我的盲盒</span>
             </button>
 
             <button className="parallelogram-button" onClick={() => { navigate('/recharge');}}>

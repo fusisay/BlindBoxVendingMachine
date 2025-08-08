@@ -23,7 +23,7 @@ export default function Header() {
             </div>
             <div className="a-list">
                 <Link to="/home" className="link">首页</Link>
-                <Link to="/products" className="link">商品</Link>
+                <Link to="/product" className="link">商品</Link>
                 <Link to="/comments" className="link">玩家秀</Link>
             </div>
             <div className="search-box">

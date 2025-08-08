@@ -1,0 +1,202 @@
+
+.lottery-content {
+    font-family: MyFont2,Serif;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.left img {
+    width: 400px;
+    height: 600px;
+}
+
+
+.right {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border: 4px solid #D4AF37;
+    padding:0.5rem 1.5rem;
+    border-radius: 20px;
+    background: #fffaf0;
+    box-shadow:
+            2px 2px 4px #C9A74F,      /* 暗部阴影 */
+            -1px -1px 2px #F3E5AB;    /* 亮部高光 */
+}
+
+.right img {
+    align-self: center;
+    width: 200px;
+    height: 200px;
+}
+.lottery-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.details {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+}
+
+.details:hover {
+    cursor: pointer;
+    color: #4861d6;
+}
+
+.lottery-desc {
+    font-size: 1.1rem;
+    color: #bfc0c0;
+    margin-bottom: 18px;
+}
+
+.lottery-price {
+    align-self: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    color: #d6571c;
+}
+
+.draw-button {
+    background: #ff6f61;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 48px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(255, 111, 97, 0.6);
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.draw-button:hover:not(:disabled) {
+    background: #ff503e;
+}
+
+.draw-button:disabled {
+    background: #a1534b;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+
+.prize-card {
+    margin-top: 32px;
+    background: #222244;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.prize-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 3px solid #ff6f61;
+    box-shadow: 0 0 15px #ff6f61;
+}
+
+.prize-info {
+    text-align: left;
+    color: #ddd;
+}
+
+.prize-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: #ffdd59;
+    letter-spacing: 1.5px;
+}
+
+.prize-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.prize-info p {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #bbb;
+}
+
+.prize-price {
+    font-weight: 700;
+    color: #ffdd59;
+}
+
+/* loading 和 error 样式 */
+.loading,
+.error {
+    padding: 40px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.error {
+    color: #ff4c4c;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: popUp 0.3s ease;
+}
+
+@keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal img.prize-img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.close-button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background: #0056b3;
+}

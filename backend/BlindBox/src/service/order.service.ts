@@ -26,9 +26,25 @@ export class OrderService {
     const product = await this.productRepo.findOneBy({ productId });
     if (!product) throw new Error('商品不存在');
 
+    // 检查是否已有相同用户和商品的待处理订单
+  const existingOrder = await this.orderRepo.findOne({
+    where: {
+      user: { id: userId },
+      product: { productId },
+      orderStatus: OrderStatus.PENDING,
+    },
+    relations: ['user', 'product'],
+  });
+
+  if (existingOrder) {
+    existingOrder.quantity += 1;
+    return await this.orderRepo.save(existingOrder);
+  }
+
     const order = this.orderRepo.create({
       user,
       product,
+      quantity: 1,
       orderStatus: OrderStatus.PENDING,
     });
 
@@ -42,5 +58,13 @@ export class OrderService {
 
     order.orderStatus = status;
     return await this.orderRepo.save(order);
+  }
+
+  async getOrders(userId: number) {
+    return await this.orderRepo.find({
+      where: { user: { id: userId } },
+      relations: ['user', 'product'],
+      order: { createdAt: 'DESC' },
+    });
   }
 }

@@ -25,6 +25,8 @@ export class Order {
   @ManyToOne(() => Product, { eager: true })
   product: Product;
 
+  @Column({default: 1})
+  quantity: number;
 
   @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.PENDING })
   orderStatus: OrderStatus;

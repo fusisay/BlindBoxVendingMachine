@@ -6,6 +6,9 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import {Self} from "./pages/Self.jsx";
 import {Recharge} from "./pages/Recharge.jsx";
+import Product from "./pages/Product.jsx";
+import Order from "./pages/Order.jsx";
+import {Lottery} from "./pages/Lottery.jsx";
 
 function App() {
 
@@ -18,6 +21,9 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/self' element={<Self />} />
             <Route path='/recharge' element={<Recharge />} />
+            <Route path='/product' element={<Product />} />
+            <Route path='/order' element={<Order />} />
+            <Route path="/lottery/:blindBoxId" element={<Lottery />} />
         </Routes>
     </div>
   )
