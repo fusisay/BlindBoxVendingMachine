@@ -9,6 +9,7 @@ import {Recharge} from "./pages/Recharge.jsx";
 import Product from "./pages/Product.jsx";
 import Order from "./pages/Order.jsx";
 import {Lottery} from "./pages/Lottery.jsx";
+import Comment from "./pages/Comment.jsx";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='/product' element={<Product />} />
             <Route path='/order' element={<Order />} />
             <Route path="/lottery/:blindBoxId" element={<Lottery />} />
+            <Route path='/comment' element={<Comment />} />
         </Routes>
     </div>
   )

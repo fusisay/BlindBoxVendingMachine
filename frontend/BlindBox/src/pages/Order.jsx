@@ -24,7 +24,7 @@ export default function Order() {
 
     const pendingOrders = order?.filter(o => o.orderStatus === 'pending') || [];
     const shippedOrders = order?.filter(o => o.orderStatus === 'shipped') || [];
-    const deliveredOrders = order?.filter(o => o.status === 'delivered') || [];
+    const deliveredOrders = order?.filter(o => o.orderStatus === 'delivered') || [];
 
 
 
@@ -54,6 +54,12 @@ export default function Order() {
                                                         <h4>{o.product.productName}</h4>
                                                         <p>¥{o.product.productPrice} × {o.quantity}</p>
                                                     </div>
+                                                    <button className="change_status" onClick={async () => {
+                                                        const res = await axios.put(`/api/orders/${o.orderId}/status`,{status:"shipped"})
+                                                        if (res.status === 200) {
+                                                            console.log("状态修改成功！",res.data)
+                                                        }
+                                                    }}>点击发货</button>
                                                 </div>
                                             ))}
                                         </section>
@@ -68,6 +74,12 @@ export default function Order() {
                                                         <h4>{o.product.productName}</h4>
                                                         <p>¥{o.product.productPrice} × {o.quantity}</p>
                                                     </div>
+                                                    <button className="change_status" onClick={async () => {
+                                                        const res = await axios.put(`/api/orders/${o.orderId}/status`,{status:"delivered"})
+                                                        if (res.status === 200) {
+                                                            console.log("状态修改成功！",res.data)
+                                                        }
+                                                    }}>确认收货</button>
                                                 </div>
                                             ))}
                                         </section>

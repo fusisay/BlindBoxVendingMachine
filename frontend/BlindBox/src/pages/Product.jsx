@@ -1,7 +1,6 @@
 import "../components/Background.css";
 import "./Product.css";
 import Header from "../layouts/Header.jsx";
-import { useUserStore } from "../store/userStore.js";
 import { useEffect, useState } from "react";
 import axios from "../constants/axios.js";
 import {useNavigate} from "react-router-dom";
@@ -32,12 +31,14 @@ export default function Product() {
             <div className="mask">
                 <div className="container">
                     <Header />
-                    <main style={{ marginTop: 20 }}>
+                    <main>
+                    <div className="content" style={{ marginTop: 20 }}>
                         {!blindBoxes ? (
                             <p>加载盲盒中...</p>
                         ) : (
                             blindBoxes.map((box) => (
                                 <div key={box.blindBoxId} className="blindbox-card" onClick={() => handleClick(box.blindBoxId)}>
+                                    <button className="draw">点击抽盒</button>
                                     <img
                                         src={box.blindBoxImgUrl}
                                         alt={box.blindBoxName}
@@ -72,6 +73,10 @@ export default function Product() {
                                 </div>
                             ))
                         )}
+                        <div className="blindbox-card"></div>
+                        <div className="blindbox-card"></div>
+
+                    </div>
                     </main>
                 </div>
             </div>

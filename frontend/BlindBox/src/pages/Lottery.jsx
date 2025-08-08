@@ -44,14 +44,21 @@ export function Lottery() {
             useUserStore.getState().setUserInfo({user:{balance:res.data.balance}})
         }
 
-        setTimeout(() => {
+        setTimeout(async () => {
             const randomIndex = Math.floor(Math.random() * blindBox.products.length);
             const selectedPrize = blindBox.products[randomIndex];
             setPrize(selectedPrize);
+            const response = await axios.post('/api/orders',{userId:state?.user?.id,productId:selectedPrize?.productId})
+            if(response.status !== 200){
+                alert("订单创建失败！")
+            }
             setLoading(false);
             setShowModal(true); // 显示小窗口
     },2000)
+
+
     }
+
 
     return (
         <div className="background">

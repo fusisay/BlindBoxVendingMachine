@@ -1,5 +1,6 @@
 /* 横向排列三组订单 */
 .order-section-row {
+    font-family: MyFont2,Serif;
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -58,4 +59,8 @@
 .order-info p {
     margin: 4px 0 0 0;
     color: #666;
+}
+
+.change_status {
+    background-color: #2e9ed6;
 }

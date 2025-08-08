@@ -1,12 +1,36 @@
+.content {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* 移动端惯性滑动 */
+    gap:2rem;
+}
+
+
 .blindbox-card {
+    position: relative;
+    flex-shrink: 0;
+    width: 350px;
     font-family: MyFont2,Serif;
     display: flex;
     gap: 20px;
     margin-bottom: 30px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 16px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    border: 4px solid #D4AF37;
+    padding:0.5rem 1.5rem;
+    border-radius: 20px;
+    background: #fffaf0;
+    box-shadow:
+            2px 2px 4px #C9A74F,      /* 暗部阴影 */
+            -1px -1px 2px #F3E5AB;    /* 亮部高光 */
+}
+
+.draw  {
+    position: absolute;
+    background-color: #d67c08;
+    top: 55%;
+    left: 10%;
 }
 
 .blindbox-img {
@@ -22,6 +46,7 @@
 
 .products-list {
     margin-top: 12px;
+    overflow-y: auto;
 }
 
 .product-card {

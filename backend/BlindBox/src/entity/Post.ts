@@ -13,6 +13,9 @@ export class Post {
   @Column('text')
   content: string;
 
+  @Column()
+  imageUrl?: string;
+
   @CreateDateColumn()
   createdAt: Date;
 
