@@ -1,4 +1,4 @@
-.content {
+.contents {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -16,7 +16,7 @@
     font-family: MyFont2,Serif;
     display: flex;
     gap: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border: 4px solid #D4AF37;
     padding:0.5rem 1.5rem;
     border-radius: 20px;

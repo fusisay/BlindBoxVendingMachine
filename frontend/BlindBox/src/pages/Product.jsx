@@ -32,7 +32,7 @@ export default function Product() {
                 <div className="container">
                     <Header />
                     <main>
-                    <div className="content" style={{ marginTop: 20 }}>
+                    <div className="contents" style={{ marginTop: 20 }}>
                         {!blindBoxes ? (
                             <p>加载盲盒中...</p>
                         ) : (

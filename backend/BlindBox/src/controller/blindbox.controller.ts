@@ -1,4 +1,4 @@
-import { Controller, Post, Del, Get, Param, Body, Inject } from '@midwayjs/decorator';
+import { Controller, Post, Del, Get, Param, Body, Inject, Query } from '@midwayjs/decorator';
 import { BlindBoxService } from '../service/blindbox.service';
 import { ApiTags, ApiOperation } from '@midwayjs/swagger';
 import { BlindBoxDTO } from '../interface/product.dto';
@@ -57,4 +57,12 @@ export class BlindBoxController {
   ) {
     return await this.blindBoxService.removeProductFromBlindBox(blindBoxId, productId);
   }
+
+  // 搜索盲盒
+  @Get('/search')
+  @ApiOperation({ summary: '搜索盲盒' })
+  async search(@Query('keyword') keyword: string) {
+    return await this.blindBoxService.searchBlindBoxes(keyword);
+  }
 }
+

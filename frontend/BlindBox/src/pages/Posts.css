@@ -1,0 +1,56 @@
+.content {
+    position: relative;
+    font-family: MyFont2,Serif;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:2rem;
+}
+
+.post_button {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    background-color: #d6d300;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* ✅ 允许多行 */
+    align-items: flex-start; /* ✅ 不等高 */
+    text-align: center;
+    width: 70vw;
+    overflow-y: auto;
+    padding: 0;
+    gap:2rem;
+}
+
+.post-item {
+    width: 15vw;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: 12px;
+    background: #fffaf0;
+    box-shadow:
+            2px 2px 4px #C9A74F,
+            -1px -1px 2px #F3E5AB;
+    transition: box-shadow 0.2s;
+}
+
+.post-item:hover {
+    box-shadow:
+            3px 3px 8px #D4AF37,
+            -1px -1px 3px #FAF3D5;
+}
+
+.post-thumb {
+    max-width: 200px;
+    max-height: 120px;
+    object-fit: cover;
+    margin-top: 8px;
+    border-radius: 10px;
+}

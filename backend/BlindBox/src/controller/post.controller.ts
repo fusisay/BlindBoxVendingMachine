@@ -15,6 +15,13 @@ export class PostController {
     return await this.postService.createPost(dto);
   }
 
+  @Get('/:id')
+  @ApiOperation({ summary: '根据ID获取帖子详情(含评论)' })
+  async getPostById(@Param('id') id: number) {
+    return await this.postService.getPostWithComments(id);
+  }
+
+
 
 
   @Del('/:id/:userId')

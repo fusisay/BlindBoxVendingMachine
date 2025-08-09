@@ -1,0 +1,14 @@
+.main {
+    position:relative;
+    flex: 1 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_res {
+    font-family: MyFont2,Serif;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}

@@ -24,6 +24,6 @@ export class Post {
   author: User;
 
   // 一对多评论
-  @OneToMany(() => Comment, comment => comment.post)
+  @OneToMany(() => Comment, comment => comment.post, {cascade: true, onDelete: 'CASCADE'})
   comments: Comment[];
 }

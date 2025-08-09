@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { BlindBox } from '../entity/BlindBox';
 import { Product } from '../entity/Product';
 import { BlindBoxDTO } from '../interface/product.dto';
+import { Like } from 'typeorm';
 
 @Provide()
 export class BlindBoxService {
@@ -74,4 +75,18 @@ export class BlindBoxService {
     blindBox.products = blindBox.products.filter(p => p.productId !== productId);
     return await this.blindBoxRepo.save(blindBox);
   }
+
+  async searchBlindBoxes(keyword: string) {
+  if (!keyword || keyword.trim() === '') {
+    return [];
+  }
+  return await this.blindBoxRepo.find({
+    where: [
+      { blindBoxName: Like(`%${keyword}%`) },
+      { blindBoxDescription: Like(`%${keyword}%`) }
+    ],
+    relations: ['products'],
+  });
+}
+
 }

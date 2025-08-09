@@ -18,13 +18,14 @@ export class Comment {
   author: User;
 
   // 关联的帖子
-  @ManyToOne(() => Post, post => post.comments)
+  @ManyToOne(() => Post, post => post.comments, {onDelete: 'CASCADE'})
   post: Post;
 
   // 可选：父评论（用于回复评论）
-  @ManyToOne(() => Comment, comment => comment.replies, { nullable: true })
+  @ManyToOne(() => Comment, comment => comment.replies, { nullable: true, onDelete: 'CASCADE' })
   parentComment: Comment;
 
   @OneToMany(() => Comment, comment => comment.parentComment)
   replies: Comment[];
+
 }

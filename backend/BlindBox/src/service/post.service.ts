@@ -29,6 +29,16 @@ export class PostService {
     return await this.postRepo.save(post);
   }
 
+
+   async getPostWithComments(id: number) {
+    const post = await this.postRepo.findOne({
+      where: { id },
+      relations: ['author', 'comments', 'comments.author', 'comments.replies', 'comments.replies.author']
+    });
+    if (!post) throw new Error('帖子不存在');
+    return post;
+  }
+
   async deletePost(id: number, userId: number) {
     const post = await this.postRepo.findOne({ where: { id }, relations: ['author'] });
     if (!post) throw new Error('帖子不存在');

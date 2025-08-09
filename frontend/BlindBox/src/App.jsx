@@ -9,7 +9,9 @@ import {Recharge} from "./pages/Recharge.jsx";
 import Product from "./pages/Product.jsx";
 import Order from "./pages/Order.jsx";
 import {Lottery} from "./pages/Lottery.jsx";
-import Comment from "./pages/Comment.jsx";
+import Posts from "./pages/Posts.jsx";
+import PostDetail from "./pages/PostDetail.jsx";
+import SearchResult from "./pages/SearchResult.jsx";
 
 function App() {
 
@@ -25,7 +27,9 @@ function App() {
             <Route path='/product' element={<Product />} />
             <Route path='/order' element={<Order />} />
             <Route path="/lottery/:blindBoxId" element={<Lottery />} />
-            <Route path='/comment' element={<Comment />} />
+            <Route path='/posts' element={<Posts />} />
+            <Route path='/posts/:postId' element={<PostDetail />} />
+            <Route path="/search" element={<SearchResult />} />
         </Routes>
     </div>
   )

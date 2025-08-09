@@ -1,0 +1,32 @@
+.show_card {
+    position: relative;
+    flex: 1;
+    width: 60vw;
+    height: 60vh;
+    margin: 2rem auto;
+    border: 4px solid #D4AF37;
+    padding:0.5rem 1.5rem;
+    border-radius: 20px;
+    background: #fffaf0;
+    box-shadow:
+            2px 2px 4px #C9A74F,      /* 暗部阴影 */
+            -1px -1px 2px #F3E5AB;    /* 亮部高光 */
+    font-family: MyFont2,Serif;
+    overflow-y: auto;
+}
+
+.img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.show_card button {
+    background-color: #d6b90a;
+    color: black;
+}
+
+.delete {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
